@@ -34,6 +34,10 @@ h4 {
   color: var(--primary-title-color);
 }
 
+.button {
+  cursor: pointer;
+}
+
 h1,
 h2,
 h3,
@@ -620,10 +624,11 @@ address p {
   border-radius: 4px;
   cursor: pointer;
 }
-
-.portfolio-link:hover .portfolio-text {
+.portfolio-img-thmb:hover::before,
+.portfolio-img-thmb:hover .portfolio-text {
   opacity: 1;
 }
+
 .obvodka .portfolio-link:hover,
 .obvodka .portfolio-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
@@ -677,6 +682,16 @@ address p {
   position: relative;
 }
 
+.portfolio-img-thmb::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(33, 150, 243, 0.9);
+  opacity: 0;
+}
 .portfolio-text {
   position: absolute;
   top: 50%;
@@ -693,7 +708,6 @@ address p {
   line-height: calc(28 / 18);
   letter-spacing: 0.03em;
   color: var(--primary-bg-color);
-  background: rgba(33, 150, 243, 0.9);
   opacity: 0;
 }
 
@@ -712,3 +726,51 @@ address p {
   line-height: 30px;
   letter-spacing: 0.03em;
 }
+
+/* ----------------------------------------------------- modal-window -------------------------------------------------- */
+.bacdrop {
+  position: fixed;
+  background: rgba(0, 0, 0, 0.2);
+  top: 0;
+  left: 0%;
+  width: 100%;
+  height: 100%;
+}
+.modal-window {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 528px;
+  height: 581px;
+  background: var(--primary-bg-color);
+}
+
+.is-hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+.modal-close-btn {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  cursor: pointer;
+  height: 30px;
+  width: 30px;
+  background: #ffffff;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Разрешить клацать
+pointer-events: none; */
+
+/* Выровнять
+ position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); */
+
+/* 
+  Защита от работяг
+  user-select: none; */

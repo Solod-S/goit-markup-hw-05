@@ -56,7 +56,7 @@
           Эффективные решения <br />
           для вашего бизнеса
         </h1>
-        <button type="button" class="button">Заказать услугу</button>
+        <button class="button" data-modal-open>Заказать услугу</button>
       </section>
       <!--Род деятельности-->
       <section class="section-features">
@@ -514,5 +514,16 @@
         </div>
       </div>
     </footer>
+    <!--Модалка + скрипт-->
+    <div class="bacdrop is-hidden" data-modal>
+      <div class="modal-window">
+        <button class="modal-close-btn" data-modal-close>
+          <svg class="modal-close-svg" width="11px" height="11px">
+            <use href="./images/symbol-defs.svg#icon-cross"></use>
+          </svg>
+        </button>
+      </div>
+    </div>
+    <script src="./js/modal.js"></script>
   </body>
 </html>
