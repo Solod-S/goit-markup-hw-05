@@ -191,12 +191,14 @@ footer a {
 .site-nav .link:hover,
 .site-nav .link:focus {
   color: var(--primary-accent-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .auth-nav a:hover,
 .auth-nav a:focus {
   color: var(--primary-accent-color);
   fill: var(--primary-accent-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1), fill cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .site-nav a::after {
@@ -255,7 +257,7 @@ footer a {
 
 .button {
   display: inline-block;
-  padding: 10px;
+  padding: 10px 32px;
 
   color: var(--primary-bg-color);
   background-color: var(--primary-accent-color);
@@ -276,6 +278,8 @@ footer a {
   color: var(--primary-accent-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .button:active {
   background-color: var(--primary-accent-color);
@@ -483,6 +487,8 @@ footer a {
 .team-social-link:focus {
   background-color: var(--primary-accent-color);
   fill: var(--primary-bg-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .team-social-link:not(:last-child) {
@@ -520,11 +526,29 @@ footer a {
   fill: #afb1b8;
 } */
 
+.clients-icon {
+  position: absolute;
+  backface-visibility: hidden;
+}
+
+.client-icon-back {
+  transform: rotateY(180deg);
+}
+.client-icon {
+  position: absolute;
+}
 .clients-item:not(:last-child) {
   margin-right: 30px;
 }
 
+.clients-link:hover {
+  transform: translatex(-100%) rotateY(180deg);
+}
 .clients-link {
+  position: relative;
+  transform-style: preserve-3d;
+  transform-origin: center right;
+  transition: transform 1000ms cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -580,8 +604,8 @@ footer a {
 
 .footer-social-link:hover,
 .footer-social-link:focus {
-  fill: var(--primary-bg-color);
   background-color: var(--primary-accent-color);
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .footer-social-item:not(:last-child) {
@@ -634,6 +658,7 @@ address p {
 .contacts .link:hover,
 .contacts .link:focus {
   color: var(--primary-accent-color);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* ----------------------------------------------------- 2 -------------------------------------------------- */
 /* < !-- Портфолио --> */
@@ -696,6 +721,9 @@ address p {
 .portfolio a {
   text-decoration: none;
 }
+.portfolio-img {
+  display: block;
+}
 
 .portfolio-img-thmb {
   position: relative;
@@ -711,6 +739,7 @@ address p {
 .obvodka .portfolio-link:focus {
   box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),
     1px 4px 6px rgba(0, 0, 0, 0.16);
+  transition: box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 /* .portfolio-button:last-child {
   margin-right: 8px;
@@ -718,10 +747,13 @@ address p {
 
 .portfolio-button:hover,
 .portfolio-button:focus {
-  background: var(--primary-accent-color);
+  background-color: var(--primary-accent-color);
   color: var(--primary-bg-color);
   box-shadow: 0px 3px 1px rgba(0, 0, 0, 0.1), 0px 1px 2px rgba(0, 0, 0, 0.08),
     0px 2px 2px rgba(0, 0, 0, 0.12);
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    background-color 250ms cubic-bezier(0.4, 0, 0.2, 1),
+    box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .portfolio-text {
@@ -761,17 +793,21 @@ address p {
 /* ----------------------------------------------------- modal-window -------------------------------------------------- */
 .bacdrop {
   position: fixed;
-  background: rgba(0, 0, 0, 0.2);
+  transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
   top: 0;
   left: 0%;
   width: 100%;
   height: 100%;
+  opacity: 1;
+
+  background: rgba(0, 0, 0, 0.2);
 }
 .modal-window {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%) scale(1);
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
   width: 528px;
   height: 581px;
   background: var(--primary-bg-color);
@@ -780,6 +816,10 @@ address p {
 .is-hidden {
   opacity: 0;
   pointer-events: none;
+}
+
+.bacdrop.is-hidden .modal-window {
+  transform: translate(-50%, -50%) scale(0.9);
 }
 .modal-close-btn {
   position: absolute;
