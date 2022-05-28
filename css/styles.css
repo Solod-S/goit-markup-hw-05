@@ -678,13 +678,12 @@ address p {
 
 .portfolio-img-thmb {
   position: relative;
+  overflow: hidden;
 }
 
-.portfolio-link:hover .portfolio-img-thmb::before,
 .portfolio-link:hover .portfolio-text,
-.portfolio-link:focus .portfolio-img-thmb::before,
 .portfolio-link:focus .portfolio-text {
-  opacity: 1;
+  transform: translateY(0%);
 }
 
 .obvodka .portfolio-link:hover,
@@ -704,31 +703,22 @@ address p {
     0px 2px 2px rgba(0, 0, 0, 0.12);
 }
 
-.portfolio-img-thmb::before {
-  content: '';
+.portfolio-text {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(33, 150, 243, 0.9);
-  opacity: 0;
-}
-.portfolio-text {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 100%;
-  height: 100%;
+  transform: translateY(100%);
   padding: 63px 24px;
-  overflow: auto;
+  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 
   font-size: 18px;
   line-height: calc(28 / 18);
   letter-spacing: 0.03em;
   color: var(--primary-bg-color);
-  opacity: 0;
+  background: rgba(33, 150, 243, 0.9);
+  opacity: 1;
 }
 
 .portfolio-title {
