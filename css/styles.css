@@ -597,7 +597,7 @@ footer a {
   transform-style: preserve-3d;
   transform-origin: center right;
   transition: transform 1000ms cubic-bezier(0.4, 0, 0.2, 1),
-    bordercolor 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+    border 250ms cubic-bezier(0.4, 0, 0.2, 1), fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   justify-content: center;
   align-items: center;
